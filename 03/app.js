@@ -3,8 +3,7 @@
 //     console.log(111111);//어떤 동작()
 //     //event.stopPropagation();//이벤트 동작 중지 해당 html의 동작은 감
 //     event.preventDefault();//기능이 동작하지 않음
-
-});
+//});
 // var list = document.querySelector('#list');
 // console.log(list.children);
 
