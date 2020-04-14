@@ -1,8 +1,8 @@
-var link = document.querySelector('#link');
-link.addEventListener('click', function() {
-    console.log(111111);//어떤 동작()
-    //event.stopPropagation();//이벤트 동작 중지 해당 html의 동작은 감
-    event.preventDefault();//기능이 동작하지 않음
+// var link = document.querySelector('#link');
+// link.addEventListener('click', function() {
+//     console.log(111111);//어떤 동작()
+//     //event.stopPropagation();//이벤트 동작 중지 해당 html의 동작은 감
+//     event.preventDefault();//기능이 동작하지 않음
 
 });
 // var list = document.querySelector('#list');
@@ -74,8 +74,8 @@ link.addEventListener('click', function() {
 // span.appendChild(textNode);
 // document.querySelector('#debug').appendChild(span);
 
-var debug = document.getElementById('debug');
-//debug.remove();
+// var debug = document.getElementById('debug');
+// //debug.remove();
 
-const list = document.getElementById('list'); 
-list.removeChild(list.children[0]);//리스트의 첫번 째 자식을 지움
+// const list = document.getElementById('list'); 
+// list.removeChild(list.children[0]);//리스트의 첫번 째 자식을 지움
