@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>qiuzo4</title>
+        <style>
+        .box{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 10px;
+            left: 10px;
+            background-color: gray;
+        }
+        </style>
+    </head>
+    <body>
+    <div class="box">Drag me!</div>
+    <script>     
+        const box = document.querySelector('.box');
+
+        let drag = false;
+        let originTop;
+        let originLeft;
+        let originX;
+        let originY;
+
+        box.addEventListener('mousedown', e => {
+            drag = true;
+
+            originTop = box.offsetTop;
+            originLeft = box.offsetLeft;
+            originX = e.clientX;
+            originY = e.clientY;
+
+            console.log(e);
+        })
+
+        document.addEventListener('mouseup', e => {
+            drag = false;
+        })
+
+        document.addEventListener('mousemove', e => {
+            if(drag){
+                const diffX = e.clientX - originX;
+                const diffY = e.clientY - originY;
+                const Box = box.getBoundingClientRect();
+
+                const resultTop = Math.min(
+                    Math.max(0, originTop + diffY), 
+                    );
+
+                const resultLeft = Math.min(
+                    Math.max(0, originLeft + diffX),
+                    );
+                
+                box.style.top = resultTop+ "px";
+                box.style.left = resultLeft + "px";
+            }
+            
+        })
+        </script>
+        <ol>
+            <li>박스를 누르면 드래그가 시작됩니다 (mousedown 이벤트)</li>
+            <li>
+              마우스가 눌린 상태로 마우스를 움직이면 박스가 마우스 커서를 따라
+              움직입니다 (mousemove 이벤트)
+            </li>
+            <li>클릭을 해제하면 드래그가 멈춥니다 (mouseup 이벤트)</li>
+          </ol>
+    </body>
+</html>
