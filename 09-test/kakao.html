@@ -29,22 +29,30 @@
             검색
           </button>
         </div>
-      </div>
 
-      <div id="result"></div>
-      <!-- <ul class="list-group list-group-flush" >
+        <div id="result"></div>
+        <!-- <ul class="list-group list-group-flush" >
         <li class="list-group-item">Cras justo odio</li>
         <li class="list-group-item">Dapibus ac facilisis in</li>
         <li class="list-group-item">Morbi leo risus</li>
         <li class="list-group-item">Porta ac consectetur ac</li>
         <li class="list-group-item">Vestibulum at eros</li> 
       </ul> -->
-    </div>
+      </div>
+
+      <span>
+        <div class="input-group-append">
+      <button class=" btn btn-primary" type="button" id="add_btn">
+        더보기
+      </div>
+  </span>
     <script>
       const $btn = document.querySelector('#search-btn');
       const $text = document.querySelector('#search-text');
       const $result = document.querySelector('#result');
+      const $addbtn = document.querySelector('#add_btn');
       const url = 'https://dapi.kakao.com/v2/search/web';
+      let page = 1;
       const headers = {
         Authorization: 'KakaoAK 7c42a537b7a3ce28ba33f2cbf81a4246',
       };
@@ -79,8 +87,29 @@
 
         return true;
       }
+      function dodisplay(page) {
+        const { documents } = data;
+          fetch(`${url}?query=${value}`, { headers })
+          .then((res) => res.json())
+          .then(success)
+          .catch(error);
+      }
+function morelist(){
 
-      $btn.addEventListener('click', search);
+  var con = document.getElementById('addbtn');
+          dodisplay();
+        if (con.style.display == 'none') {
+          con.style.display = 'block';
+        } else {
+          con.style.display = 'none';
+        }
+}
+
+      $btn.addEventListener('click', ()=>{
+        search(page);
+        page ++;  
+      });
+      $addbtn.addEventListener('click', morelist);
     </script>
   </body>
 </html>
