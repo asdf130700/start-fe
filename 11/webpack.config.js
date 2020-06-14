@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  mode: 'production',
   output: {
     filename: 'app.js',
     path: `${__dirname}/dist`,
@@ -20,6 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
     ],
